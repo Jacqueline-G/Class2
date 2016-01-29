@@ -1,25 +1,20 @@
-// Flapjacks
+var value = 0;
 
-// take in a number and out put flap if it's divisble 
-// by 3, jacks if it's divisible by 5 and flapjacks if both
-
-var flapperJacks = function(aNumber) {
-  for(var i = 1; i <= aNumber; i = i + 1) {
-    if (i % 3 === 0 && i % 5 === 0){
-      console.log("flapjacks")
-    }
-    else if (i % 3 === 0) {
-      console.log("flap")
-    }
-    else if (i % 5 === 0) {
-      console.log("jacks")
-    }
-    else {
-      console.log(i)
-    }
-  }
+function setup(){
+  createCanvas(600,600)
 }
 
-flapperJacks(1);
-
+function draw() {
+  fill(value);
+  ellipse(70, 70, 100, 100);
+  rect(140, 140, 100, 100)
+}
+function mouseMoved() {
+  value = value + 5;
+  if (value > 255) {
+    value = 0;
+  }
+  {
+    }
+}
 

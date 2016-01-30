@@ -1,20 +1,31 @@
-var value = 0;
+var bubbles = [];
 
-function setup(){
-  createCanvas(600,600)
+function setup() {
+  createCanvas(600, 400);
+  for (var i = 0; i < 400; i++) {
+    bubbles[i] = new Bubble();
+  }
 }
 
 function draw() {
-  fill(value);
-  ellipse(70, 70, 100, 100);
-  rect(140, 140, 100, 100)
-}
-function mouseMoved() {
-  value = value + 5;
-  if (value > 255) {
-    value = 0;
+  background(0);
+  for (var i = 0; i < bubbles.length; i++) {
+    bubbles[i].move();
+    bubbles[i].display();
   }
-  {
-    }
 }
 
+function Bubble() {
+  this.x = random(0, width);
+  this.y = random(0, height);
+
+  this.display = function() {
+    stroke(255);
+    noFill();
+    ellipse(this.x, this.y, 24, 24);
+  }
+
+  
+
+  }
+}

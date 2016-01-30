@@ -1,31 +1,20 @@
-var bubbles = [];
-
-function setup() {
-  createCanvas(600, 400);
-  for (var i = 0; i < 400; i++) {
-    bubbles[i] = new Bubble();
-  }
+function setup () {
+  createCanvas(480,400);
 }
 
 function draw() {
-  background(0);
-  for (var i = 0; i < bubbles.length; i++) {
-    bubbles[i].move();
-    bubbles[i].display();
+  background(210, 20, 200)
+  for (var x = 12; x <= width; x = x + 15) {
+    for (var y = 31; y < height; y = y + 8) {
+      new EllipseMove(x,y, mouseMoves())
+    }
   }
 }
 
-function Bubble() {
-  this.x = random(0, width);
-  this.y = random(0, height);
+var EllipseMove = function(x,y) {
+  ellipse(x + y, y, 16 - y/10.0, 16 - y/10.0);
+}
 
-  this.display = function() {
-    stroke(255);
-    noFill();
-    ellipse(this.x, this.y, 24, 24);
-  }
-
-  
-
-  }
+function mouseMoves() {
+  ellipse(mouseX, mouseY, pmouseX, pmouseY) ;
 }
